@@ -14,8 +14,6 @@ jobs:
       - uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
-      - name: Enable Developer Command Prompt
-        uses: ./
       - name: Compile
         shell: cmd
         run: clang.exe -o main.exe main.c
