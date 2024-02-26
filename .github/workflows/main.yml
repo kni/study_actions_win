@@ -7,8 +7,11 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ilammy/msvc-dev-cmd@v1
+      # - uses: actions/checkout@v4
+      # - uses: ilammy/msvc-dev-cmd@v1
+      - uses: TheMrMilchmann/setup-msvc-dev@v3
+        with:
+          arch: x64
       - name: Build something requiring CL.EXE
         run: |
           cl.exe main.c
