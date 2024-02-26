@@ -16,6 +16,10 @@ jobs:
           arch: x64
       - name: Build something requiring clang
         run: |
+          pwd
+          dir
           "%VS140COMNTOOLS%../../VC/vcvarsall.bat"
+          pwd
+          dir
           clang.exe main.c
           main.exe
