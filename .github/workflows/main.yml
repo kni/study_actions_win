@@ -17,7 +17,7 @@ jobs:
       - name: Compile
         run: clang.exe -o main.exe main.c
       - name: Test
-        run: main.exe
+        run: ./main.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
