@@ -14,8 +14,8 @@ jobs:
       - uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
-      - name: Build something requiring CL.EXE
+      - name: Build something requiring clang
         run: |
           "%VS140COMNTOOLS%../../VC/vcvarsall.bat"
-          cl.exe main.c
+          clang.exe main.c
           main.exe
