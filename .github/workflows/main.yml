@@ -8,17 +8,12 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        arch:
-          - x64
-          - x86
     steps:
       - uses: actions/checkout@v4
       # - uses: ilammy/msvc-dev-cmd@v1
       - uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
-          arch: ${{ matrix.arch }}
+          arch: x64
       - name: Compile
         run: clang.exe -o main.exe main.c
       - name: Test
