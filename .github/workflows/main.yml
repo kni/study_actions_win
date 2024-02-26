@@ -15,6 +15,6 @@ jobs:
       - name: Build something requiring CL.EXE
         run: |
           # cl.exe main.c
-          cmake -G "NMake Makefiles" .
+          cmake -G "NMake Makefiles"
           nmake
           main.exe
