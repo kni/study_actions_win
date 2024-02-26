@@ -15,9 +15,11 @@ jobs:
         with:
           arch: x64
       - name: Compile
-        shell: cmd
         run: clang.exe -o main.exe main.c
       - name: Test
-        shell: cmd
         run: main.exe
-
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact
+          path: ./*.exe
