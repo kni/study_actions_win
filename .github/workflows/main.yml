@@ -1,3 +1,5 @@
+
+
 name: CI C
 
 on:
@@ -14,7 +16,6 @@ jobs:
           arch: x64
       - name: Build something requiring CL.EXE
         run: |
-          # cl.exe main.c
-          cmake -G "NMake Makefiles"
-          nmake
+          "%VS140COMNTOOLS%../../VC/vcvarsall.bat" amd64
+          cl.exe main.c
           main.exe
