@@ -1,0 +1,10 @@
+name: CI C
+
+build:
+  steps:
+    - uses: actions/checkout@v4
+    - uses: ilammy/msvc-dev-cmd@v1
+    - name: Build something requiring CL.EXE
+      run: |
+        cl.exe main.c
+        main.exe
