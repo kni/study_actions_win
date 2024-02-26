@@ -15,9 +15,9 @@ jobs:
         with:
           arch: x64
       - name: Compile
-        run: clang.exe -o main.exe main.c
+        run: clang.exe -o main.exe main.c >> $Env:GITHUB_OUTPUT
       - name: Test
-        run: ./main.exe
+        run: ./main.exe >> $Env:GITHUB_OUTPUT
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
