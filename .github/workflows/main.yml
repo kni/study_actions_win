@@ -16,6 +16,6 @@ jobs:
           arch: x64
       - name: Build something requiring CL.EXE
         run: |
-          "%VS140COMNTOOLS%../../VC/vcvarsall.bat" amd64
+          "%VS140COMNTOOLS%../../VC/vcvarsall.bat" x64
           cl.exe main.c
           main.exe
