@@ -3,11 +3,12 @@ name: CI C
 on:
   workflow_dispatch:
 
-build:
-  steps:
-    - uses: actions/checkout@v4
-    - uses: ilammy/msvc-dev-cmd@v1
-    - name: Build something requiring CL.EXE
-      run: |
-        cl.exe main.c
-        main.exe
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+      - name: Build something requiring CL.EXE
+        run: |
+          cl.exe main.c
+          main.exe
