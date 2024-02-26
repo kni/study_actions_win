@@ -9,17 +9,17 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      # - uses: actions/checkout@v4
-      # - uses: ilammy/msvc-dev-cmd@v1
-      - uses: TheMrMilchmann/setup-msvc-dev@v3
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+      # - uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
       - name: Build something requiring clang
         run: |
           pwd
           dir
-          "%VS140COMNTOOLS%../../VC/vcvarsall.bat"
-          pwd
-          dir
-          clang.exe main.c
+          # "%VS140COMNTOOLS%../../VC/vcvarsall.bat"
+          # pwd
+          # dir
+          # clang.exe main.c
           main.exe
