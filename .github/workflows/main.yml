@@ -10,14 +10,16 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ilammy/msvc-dev-cmd@v1
-      # - uses: TheMrMilchmann/setup-msvc-dev@v3
+      # - uses: ilammy/msvc-dev-cmd@v1
+      - uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
-      - name: Build something requiring clang
+      - name: Enable Developer Command Prompt
+        uses: ./
+      - name: Compile
         shell: cmd
         run: clang.exe -o main.exe main.c
       - name: Test
         shell: cmd
-        run: ./main.exe
+        run: main.exe
 
