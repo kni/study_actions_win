@@ -16,7 +16,5 @@ jobs:
           arch: x64
       - name: Build something requiring clang
         run: |
-          pwd
-          dir
-          clang.exe main.c
+          clang.exe -o main.exe main.c
           main.exe
