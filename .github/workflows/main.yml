@@ -18,8 +18,5 @@ jobs:
         run: |
           pwd
           dir
-          # "%VS140COMNTOOLS%../../VC/vcvarsall.bat"
-          # pwd
-          # dir
-          # clang.exe main.c
+          clang.exe main.c
           main.exe
