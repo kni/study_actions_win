@@ -14,5 +14,7 @@ jobs:
           arch: x64
       - name: Build something requiring CL.EXE
         run: |
-          cl.exe main.c
+          # cl.exe main.c
+          cmake -G "NMake Makefiles" .
+          nmake
           main.exe
