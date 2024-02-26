@@ -17,4 +17,5 @@ jobs:
       - name: Build something requiring clang
         run: |
           clang.exe -o main.exe main.c
-          main.exe
+          ./main.exe
+
