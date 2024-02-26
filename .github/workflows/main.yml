@@ -15,7 +15,9 @@ jobs:
         with:
           arch: x64
       - name: Build something requiring clang
+        shell: cmd
         run: clang.exe -o main.exe main.c
       - name: Test
+        shell: cmd
         run: ./main.exe
 
