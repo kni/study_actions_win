@@ -1,2 +1,2 @@
-# study_actions_msvc
+# Study Actions MSVC
 It is test for study actions with MSVC
