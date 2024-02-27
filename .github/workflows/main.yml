@@ -12,8 +12,14 @@ jobs:
       # - uses: TheMrMilchmann/setup-msvc-dev@v3
         with:
           arch: x64
-      - name: Env
+      - name: Env 
+        run: |
+          pwd
+          dir
+      - name: Env pwd
         run: pwd
+      - name: Env dir
+        run: dir
       - name: Compile
         run: clang.exe -o main.exe main.c
       - name: Test
