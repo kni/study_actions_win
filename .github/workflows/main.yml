@@ -23,7 +23,6 @@ jobs:
       - name: Compile
         run: clang.exe -o main.exe main.c
       - name: Test
-        shell: bash
         run: ./main.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
