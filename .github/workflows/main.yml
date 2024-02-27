@@ -23,7 +23,7 @@ jobs:
       - name: Compile
         run: clang.exe -o main.exe main.c
       - name: Test
-        run: ./main.exe | Out-File -FilePath $env:GITHUB_ENV -Append 
+        run: ./main.exe >> "$GITHUB_OUTPUT"
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
