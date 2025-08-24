@@ -1,5 +1,8 @@
 name: .NET windows console
 
+on:
+  workflow_dispatch:
+
 env:
   DOTNET_VERSION: '9.0.8'
   PROJECT_PATH: './console'
