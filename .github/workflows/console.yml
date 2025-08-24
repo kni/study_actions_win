@@ -19,63 +19,20 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
+    - name: Run
+      working-directory: ${{ env.PROJECT_PATH }}
+      run: dotnet run --configuration Release
+
     - name: Build
       working-directory: ${{ env.PROJECT_PATH }}
       run: dotnet build --configuration Release
-
-  test:
-    runs-on: windows-latest
-    needs: build
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-
-    - name: Test
-      working-directory: ${{ env.PROJECT_PATH }}
-      run: dotnet test --configuration Release
-
-  publish:
-    runs-on: windows-latest
-    needs: test
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Publish
       working-directory: ${{ env.PROJECT_PATH }}
       run: dotnet publish -c Release -r win-x64 --self-contained true -o ../publish
 
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MyApp-Publish
         path: publish
-
-  release:
-    runs-on: windows-latest
-    needs: publish
-    steps:
-    - name: Download Artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: MyApp-Publish
-        path: ./release
-
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v1.0.${{ github.run_number }}
-        name: Release v1.0.${{ github.run_number }}
-        files: ./release/**/*
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
